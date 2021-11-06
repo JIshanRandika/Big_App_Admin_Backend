@@ -24,7 +24,7 @@ exports.createItem = (req, res) => {
 };
 
 // FETCH all Items
-exports.item = (req, res) => {
+exports.items = (req, res) => {
     Item.find().select('-__v').then(itemInfos => {
         res.status(200).json(itemInfos);
     }).catch(error => {

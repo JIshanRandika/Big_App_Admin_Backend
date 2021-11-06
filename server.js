@@ -61,12 +61,12 @@ mongoose.connect(dbConfig.url, { useNewUrlParser: true, useUnifiedTopology: true
 
 
       const Items = [
-        { username: 'test', itemID: '1',
-          itemName: 'item1', quantity: 10,itemStatus:'Y'},
-        { username: 'test', itemID: '2',
-          itemName: 'item2', quantity: 15,itemStatus:'N'},
-        { username: 'test', itemID: '3',
-          itemName: 'item3', quantity: 20,itemStatus:'Y'},
+        // { username: 'test', itemID: '1',
+        //   itemName: 'item1', quantity: 10,itemStatus:'Y'},
+        // { username: 'test', itemID: '2',
+        //   itemName: 'item2', quantity: 15,itemStatus:'N'},
+        // { username: 'test', itemID: '3',
+        //   itemName: 'item3', quantity: 20,itemStatus:'Y'},
       ]
 
       for(let i=0; i<Items.length; i++){

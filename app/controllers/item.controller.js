@@ -1,4 +1,5 @@
 const Item = require('../models/item.model.js');
+const {items} = require("./item.controller");
 
 // POST a Item
 exports.createItem = (req, res) => {
@@ -9,6 +10,7 @@ exports.createItem = (req, res) => {
         username: req.body.username,
         itemID: req.body.itemID,
         itemName: req.body.itemName,
+        quantity: req.body.quantity,
         itemStatus: req.body.itemStatus,
     });
 
@@ -38,6 +40,41 @@ exports.items = (req, res) => {
     });
 };
 
+
+
+
+exports.itemforuser = async(req, res) => {
+    // Ingredient.find().select('-__v')
+    // console.log(req);
+    let searchUsername=req.body.searchUsername;
+    console.log('back')
+    console.log(searchUsername);
+    // let trueIngredients=[];
+
+    let itemList=await Item.find({username:searchUsername}).select(['username','itemID','itemName', 'quantity', 'itemStatus']);
+
+
+    return res.status(200).send(itemList);
+};
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // get a Item by Id
 exports.getItem = (req, res) => {
     Item.findById(req.params.id).select('-__v')
@@ -66,6 +103,7 @@ exports.updateItem = (req, res) => {
             username: req.body.username,
             itemID: req.body.itemID,
             itemName: req.body.itemName,
+            quantity: req.body.quantity,
             itemStatus: req.body.itemStatus
         },
         {new: true}

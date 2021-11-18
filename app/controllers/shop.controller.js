@@ -2,7 +2,7 @@ const Shop = require('../models/user.model.js');
 
 
 // FETCH all Shops
-exports.items = (req, res) => {
+exports.shops = (req, res) => {
     Shop.find().select('-__v').then(itemInfos => {
         res.status(200).json(itemInfos);
     }).catch(error => {

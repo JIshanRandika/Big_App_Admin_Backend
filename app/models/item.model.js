@@ -6,7 +6,7 @@ const ItemSchema = mongoose.Schema({
     username: String,
     itemID: String,
     itemName: String,
-    quantity: String,
+    quantity: String, 
     itemStatus: String,
 
 });

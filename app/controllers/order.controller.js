@@ -4,7 +4,6 @@ const Order = require('../models/order.model.js');
 exports.createOrder = (req, res) => {
 
 
-
     const order = new Order({
         orderID: req.body.orderID,
         shopName: req.body.shopName,
@@ -13,7 +12,7 @@ exports.createOrder = (req, res) => {
         completeStatus: req.body.completeStatus,
     });
 
-    // Save a Item in the MongoDB
+    // Save a order in the MongoDB
     order.save().then(data => {
         res.status(200).json(data);
     }).catch(err => {

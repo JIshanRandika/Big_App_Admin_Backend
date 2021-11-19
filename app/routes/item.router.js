@@ -10,5 +10,5 @@ module.exports = function(app) {
     app.delete('/api/item/:id', items.deleteItem);
 
     app.post('/api/itemforuser', items.itemforuser);
-    app.post('/api/availableitemforuser', items.availableitemforuser());
+    app.post('/api/availableitemforuser', items.availableitemforuser);
 }

@@ -31,12 +31,12 @@ exports.updateOrder = (req, res) => {
     Order.findByIdAndUpdate(
         req.body._id,
         {
-            orderID: req.body.orderID,
-            shopName: req.body.shopName,
-            itemAndQuantity: req.body.itemAndQuantity,
+            // orderID: req.body.orderID,
+            // shopName: req.body.shopName,
+            // itemAndQuantity: req.body.itemAndQuantity,
             acceptStatus: req.body.acceptStatus,
-            readyStatus: req.body.readyStatus,
-            completeStatus: req.body.completeStatus,
+            // readyStatus: req.body.readyStatus,
+            // completeStatus: req.body.completeStatus,
         },
         {new: true}
     ).select('-__v')

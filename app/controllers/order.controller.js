@@ -60,7 +60,12 @@ exports.updateAcceptOrder = (req, res) => {
 
 
 
-//orders for users
+
+
+
+
+
+//neworderforuser
 exports.neworderforuser = async(req, res) => {
     // Ingredient.find().select('-__v')
     // console.log(req);
@@ -70,6 +75,53 @@ exports.neworderforuser = async(req, res) => {
     // let trueIngredients=[];
 
     let itemList=await Order.find({shopName:searchShopname,acceptStatus:'waiting'}).select(['shopName','orderID','itemAndQuantity', 'acceptStatus', 'readyStatus', 'completeStatus']);
+
+
+    return res.status(200).send(itemList);
+};
+
+
+
+//acceptedorderforuser
+exports.acceptedorderforuser = async(req, res) => {
+    // Ingredient.find().select('-__v')
+    // console.log(req);
+    let searchShopname=req.body.searchShopname;
+    console.log('back')
+    console.log(searchShopname);
+    // let trueIngredients=[];
+
+    let itemList=await Order.find({shopName:searchShopname,readyStatus:'waiting',acceptStatus:'done'}).select(['shopName','orderID','itemAndQuantity', 'acceptStatus', 'readyStatus', 'completeStatus']);
+
+
+    return res.status(200).send(itemList);
+};
+
+//readyorderforuser
+exports.readyorderforuser = async(req, res) => {
+    // Ingredient.find().select('-__v')
+    // console.log(req);
+    let searchShopname=req.body.searchShopname;
+    console.log('back')
+    console.log(searchShopname);
+    // let trueIngredients=[];
+
+    let itemList=await Order.find({shopName:searchShopname,completeStatus:'waiting',readyStatus:'done'}).select(['shopName','orderID','itemAndQuantity', 'acceptStatus', 'readyStatus', 'completeStatus']);
+
+
+    return res.status(200).send(itemList);
+};
+
+//completedorderforuser
+exports.completedorderforuser = async(req, res) => {
+    // Ingredient.find().select('-__v')
+    // console.log(req);
+    let searchShopname=req.body.searchShopname;
+    console.log('back')
+    console.log(searchShopname);
+    // let trueIngredients=[];
+
+    let itemList=await Order.find({shopName:searchShopname,completeStatus:'done'}).select(['shopName','orderID','itemAndQuantity', 'acceptStatus', 'readyStatus', 'completeStatus']);
 
 
     return res.status(200).send(itemList);

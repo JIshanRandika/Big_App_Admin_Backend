@@ -5,6 +5,11 @@ module.exports = function(app) {
 
     app.post('/api/order', orders.createOrder);
     app.post('/api/neworderforuser', orders.neworderforuser);
+    app.post('/api/acceptedorderforuser', orders.acceptedorderforuser);
+    app.post('/api/readyorderforuser', orders.readyorderforuser);
+    app.post('/api/completedorderforuser', orders.completedorderforuser);
+
+
     app.put('/api/updateAcceptOrder', orders.updateAcceptOrder);
 
 }

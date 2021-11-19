@@ -5,5 +5,6 @@ module.exports = function(app) {
 
     app.post('/api/order', orders.createOrder);
     app.post('/api/neworderforuser', orders.neworderforuser);
+    app.put('/api/order', orders.updateOrder);
 
 }

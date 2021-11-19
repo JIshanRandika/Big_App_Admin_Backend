@@ -25,6 +25,41 @@ exports.createOrder = (req, res) => {
 };
 
 
+// UPDATE a Order
+exports.updateOrder = (req, res) => {
+    // Find order and update it
+    Order.findByIdAndUpdate(
+        req.body._id,
+        {
+            orderID: req.body.orderID,
+            shopName: req.body.shopName,
+            itemAndQuantity: req.body.itemAndQuantity,
+            acceptStatus: req.body.acceptStatus,
+            readyStatus: req.body.readyStatus,
+            completeStatus: req.body.completeStatus,
+        },
+        {new: true}
+    ).select('-__v')
+        .then(item => {
+            if(!item) {
+                return res.status(404).send({
+                    message: "Error -> Can NOT update a order with id = " + req.params.id,
+                    error: "Not Found!"
+                });
+            }
+
+            res.status(200).json(item);
+        }).catch(err => {
+        return res.status(500).send({
+            message: "Error -> Can not update a order with id = " + req.params.id,
+            error: err.message
+        });
+    });
+}
+
+
+
+
 //orders for users
 exports.neworderforuser = async(req, res) => {
     // Ingredient.find().select('-__v')

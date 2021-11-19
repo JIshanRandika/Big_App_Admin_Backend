@@ -42,8 +42,24 @@ exports.items = (req, res) => {
 
 
 
-
+//items for users
 exports.itemforuser = async(req, res) => {
+    // Ingredient.find().select('-__v')
+    // console.log(req);
+    let searchUsername=req.body.searchUsername;
+    console.log('back')
+    console.log(searchUsername);
+    // let trueIngredients=[];
+
+    let itemList=await Item.find({username:searchUsername}).select(['username','itemID','itemName', 'quantity', 'itemStatus']);
+
+
+    return res.status(200).send(itemList);
+};
+
+
+//available items for users
+exports.availableitemforuser = async(req, res) => {
     // Ingredient.find().select('-__v')
     // console.log(req);
     let searchUsername=req.body.searchUsername;
@@ -56,8 +72,6 @@ exports.itemforuser = async(req, res) => {
 
     return res.status(200).send(itemList);
 };
-
-
 
 
 

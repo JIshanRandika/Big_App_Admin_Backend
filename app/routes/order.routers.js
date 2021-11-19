@@ -9,6 +9,7 @@ module.exports = function(app) {
     app.post('/api/readyorderforuser', orders.readyorderforuser);
     app.post('/api/completedorderforuser', orders.completedorderforuser);
 
+    app.delete('/api/order/:id', orders.deleteOrder);
 
     app.put('/api/updateAcceptOrder', orders.updateAcceptOrder);
     app.put('/api/updateReadyOrder', orders.updateReadyOrder);

@@ -175,3 +175,24 @@ exports.completedorderforuser = async(req, res) => {
 
     return res.status(200).send(itemList);
 };
+
+// DELETE a Order
+exports.deleteOrder = (req, res) => {
+    let itemId = req.params.id
+
+    Order.findByIdAndRemove(itemId).select('-__v -_id')
+        .then(item => {
+            if(!item) {
+                res.status(404).json({
+                    message: "Does Not exist a order with id = " + itemId,
+                    error: "404",
+                });
+            }
+            res.status(200).json({});
+        }).catch(err => {
+        return res.status(500).send({
+            message: "Error -> Can NOT delete a order with id = " + itemId,
+            error: err.message
+        });
+    });
+};

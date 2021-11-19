@@ -34,7 +34,7 @@ exports.orderforuser = async(req, res) => {
     console.log(searchShopname);
     // let trueIngredients=[];
 
-    let itemList=await Item.find({shopName:searchShopname}).select(['shopName','orderID','itemAndQuantity', 'acceptStatus', 'readyStatus', 'completeStatus']);
+    let itemList=await Order.find({shopName:searchShopname}).select(['shopName','orderID','itemAndQuantity', 'acceptStatus', 'readyStatus', 'completeStatus']);
 
 
     return res.status(200).send(itemList);

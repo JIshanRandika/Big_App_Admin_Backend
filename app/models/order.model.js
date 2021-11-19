@@ -5,7 +5,7 @@ var name = 'order';
 const OrderSchema = mongoose.Schema({
     orderID: String,
     shopName: String,
-    itemAndQuantity: String,
+    itemAndQuantity: [],
     acceptStatus: String,
     readyStatus: String,
     completeStatus: String

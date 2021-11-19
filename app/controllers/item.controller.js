@@ -51,7 +51,7 @@ exports.itemforuser = async(req, res) => {
     console.log(searchUsername);
     // let trueIngredients=[];
 
-    let itemList=await Item.find({username:searchUsername}).select(['username','itemID','itemName', 'quantity', 'itemStatus']);
+    let itemList=await Item.find({username:searchUsername,itemStatus:'Y'}).select(['username','itemID','itemName', 'quantity', 'itemStatus']);
 
 
     return res.status(200).send(itemList);

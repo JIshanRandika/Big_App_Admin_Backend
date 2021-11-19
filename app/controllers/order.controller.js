@@ -26,7 +26,7 @@ exports.createOrder = (req, res) => {
 
 
 //orders for users
-exports.orderforuser = async(req, res) => {
+exports.neworderforuser = async(req, res) => {
     // Ingredient.find().select('-__v')
     // console.log(req);
     let searchShopname=req.body.searchShopname;
@@ -34,7 +34,7 @@ exports.orderforuser = async(req, res) => {
     console.log(searchShopname);
     // let trueIngredients=[];
 
-    let itemList=await Order.find({shopName:searchShopname}).select(['shopName','orderID','itemAndQuantity', 'acceptStatus', 'readyStatus', 'completeStatus']);
+    let itemList=await Order.find({shopName:searchShopname,acceptStatus:'waiting'}).select(['shopName','orderID','itemAndQuantity', 'acceptStatus', 'readyStatus', 'completeStatus']);
 
 
     return res.status(200).send(itemList);

@@ -23,3 +23,19 @@ exports.createOrder = (req, res) => {
         });
     });
 };
+
+
+//orders for users
+exports.orderforuser = async(req, res) => {
+    // Ingredient.find().select('-__v')
+    // console.log(req);
+    let searchShopname=req.body.searchShopname;
+    console.log('back')
+    console.log(searchShopname);
+    // let trueIngredients=[];
+
+    let itemList=await Item.find({shopName:searchShopname}).select(['shopName','orderID','itemAndQuantity', 'acceptStatus', 'readyStatus', 'completeStatus']);
+
+
+    return res.status(200).send(itemList);
+};

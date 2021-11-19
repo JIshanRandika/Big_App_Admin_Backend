@@ -9,6 +9,7 @@ exports.createOrder = (req, res) => {
         shopName: req.body.shopName,
         itemAndQuantity: req.body.itemAndQuantity,
         acceptStatus: req.body.acceptStatus,
+        readyStatus: req.body.readyStatus,
         completeStatus: req.body.completeStatus,
     });
 

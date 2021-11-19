@@ -7,6 +7,7 @@ const OrderSchema = mongoose.Schema({
     shopName: String,
     itemAndQuantity: String,
     acceptStatus: String,
+    readyStatus: String,
     completeStatus: String
 
 });

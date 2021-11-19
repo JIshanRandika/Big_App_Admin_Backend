@@ -25,8 +25,8 @@ exports.createOrder = (req, res) => {
 };
 
 
-// UPDATE a Order
-exports.updateOrder = (req, res) => {
+// UPDATE a Accept Order
+exports.updateAcceptOrder = (req, res) => {
     // Find order and update it
     Order.findByIdAndUpdate(
         req.body._id,

@@ -76,7 +76,7 @@ mongoose.connect(dbConfig.url, { useNewUrlParser: true, useUnifiedTopology: true
           username: Items[i].username,
           itemID: Items[i].itemID,
           itemName: Items[i].itemName,
-          quantity: Items[i].quantity,
+          // quantity: Items[i].quantity,
           itemStatus: Items[i].itemStatus
         });
 
@@ -162,6 +162,7 @@ require("./app/routes/auth.routes")(app);
 require("./app/routes/user.routes")(app);
 require('./app/routes/item.router.js')(app);
 require('./app/routes/shop.routers')(app);
+require('./app/routes/order.routers')(app);
 
 
 

@@ -10,7 +10,7 @@ exports.createItem = (req, res) => {
         username: req.body.username,
         itemID: req.body.itemID,
         itemName: req.body.itemName,
-        quantity: req.body.quantity,
+        // quantity: req.body.quantity,
         itemStatus: req.body.itemStatus,
     });
 

@@ -31,12 +31,9 @@ exports.updateAcceptOrder = (req, res) => {
     Order.findByIdAndUpdate(
         req.body._id,
         {
-            // orderID: req.body.orderID,
-            // shopName: req.body.shopName,
-            // itemAndQuantity: req.body.itemAndQuantity,
+
             acceptStatus: req.body.acceptStatus,
-            // readyStatus: req.body.readyStatus,
-            // completeStatus: req.body.completeStatus,
+
         },
         {new: true}
     ).select('-__v')
@@ -59,10 +56,62 @@ exports.updateAcceptOrder = (req, res) => {
 
 
 
+// UPDATE a Ready Order
+exports.updateReadyOrder = (req, res) => {
+    // Find order and update it
+    Order.findByIdAndUpdate(
+        req.body._id,
+        {
+
+            readyStatus: req.body.readyStatus,
+        },
+        {new: true}
+    ).select('-__v')
+        .then(item => {
+            if(!item) {
+                return res.status(404).send({
+                    message: "Error -> Can NOT update a order with id = " + req.params.id,
+                    error: "Not Found!"
+                });
+            }
+
+            res.status(200).json(item);
+        }).catch(err => {
+        return res.status(500).send({
+            message: "Error -> Can not update a order with id = " + req.params.id,
+            error: err.message
+        });
+    });
+}
 
 
+// UPDATE a Completed Order
+exports.updateCompleteOrder = (req, res) => {
+    // Find order and update it
+    Order.findByIdAndUpdate(
+        req.body._id,
+        {
 
+            completeStatus: req.body.completeStatus,
+        },
+        {new: true}
+    ).select('-__v')
+        .then(item => {
+            if(!item) {
+                return res.status(404).send({
+                    message: "Error -> Can NOT update a order with id = " + req.params.id,
+                    error: "Not Found!"
+                });
+            }
 
+            res.status(200).json(item);
+        }).catch(err => {
+        return res.status(500).send({
+            message: "Error -> Can not update a order with id = " + req.params.id,
+            error: err.message
+        });
+    });
+}
 
 
 //neworderforuser

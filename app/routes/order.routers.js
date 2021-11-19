@@ -11,5 +11,7 @@ module.exports = function(app) {
 
 
     app.put('/api/updateAcceptOrder', orders.updateAcceptOrder);
+    app.put('/api/updateReadyOrder', orders.updateReadyOrder);
+    app.put('/api/updateCompleteOrder', orders.updateCompleteOrder);
 
 }

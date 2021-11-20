@@ -11,6 +11,8 @@ exports.createOrder = (req, res) => {
         acceptStatus: req.body.acceptStatus,
         readyStatus: req.body.readyStatus,
         completeStatus: req.body.completeStatus,
+        orderSecretCode: req.body.orderSecretCode,
+        customerContact:req.body.customerContact
     });
 
     // Save a order in the MongoDB
@@ -128,6 +130,27 @@ exports.neworderforuser = async(req, res) => {
 
     return res.status(200).send(itemList);
 };
+
+
+
+//orders for tracker
+exports.orderfortracker = async(req, res) => {
+    // Ingredient.find().select('-__v')
+    // console.log(req);
+    let searchCustomerContact=req.body.customerContact;
+    let searchSectretCode=req.body.orderSecretCode;
+    console.log('back')
+    // console.log(searchShopname);
+    // let trueIngredients=[];
+
+    let itemList=await Order.find({customerContact:searchCustomerContact, orderSecretCode:searchSectretCode}).select(['shopName','orderID','itemAndQuantity', 'acceptStatus', 'readyStatus', 'completeStatus']);
+
+
+    return res.status(200).send(itemList);
+};
+
+
+
 
 
 

@@ -8,7 +8,9 @@ const OrderSchema = mongoose.Schema({
     itemAndQuantity: [],
     acceptStatus: String,
     readyStatus: String,
-    completeStatus: String
+    completeStatus: String,
+    orderSecretCode:String,
+    customerContact:String
 
 });
 

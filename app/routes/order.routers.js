@@ -8,6 +8,7 @@ module.exports = function(app) {
     app.post('/api/acceptedorderforuser', orders.acceptedorderforuser);
     app.post('/api/readyorderforuser', orders.readyorderforuser);
     app.post('/api/completedorderforuser', orders.completedorderforuser);
+    app.post('/api/orderfortracker', orders.orderfortracker);
 
     app.delete('/api/order/:id', orders.deleteOrder);
 

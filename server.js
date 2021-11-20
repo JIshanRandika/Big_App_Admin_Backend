@@ -10,7 +10,7 @@ const app = express();
 // };
 
 var corsOptions = {
-  origin: "https://bigdealershipbackend.herokuapp.com"
+  origin: "https://bigdealershipweb.herokuapp.com"
 };
 
 

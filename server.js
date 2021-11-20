@@ -5,8 +5,12 @@ const dbConfig = require("./app/config/db.config");
 
 const app = express();
 
+// var corsOptions = {
+//   origin: "http://localhost:8081"
+// };
+
 var corsOptions = {
-  origin: "http://localhost:8081" || "http://localhost:8082"
+  origin: "https://bigdealershipbackend.herokuapp.com"
 };
 
 

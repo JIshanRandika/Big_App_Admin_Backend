@@ -10,7 +10,8 @@ const OrderSchema = mongoose.Schema({
     readyStatus: String,
     completeStatus: String,
     orderSecretCode:String,
-    customerContact:String
+    customerContact:String,
+    orderDescription:String
 
 });
 

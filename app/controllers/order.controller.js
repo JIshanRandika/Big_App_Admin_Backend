@@ -12,7 +12,8 @@ exports.createOrder = (req, res) => {
         readyStatus: req.body.readyStatus,
         completeStatus: req.body.completeStatus,
         orderSecretCode: req.body.orderSecretCode,
-        customerContact:req.body.customerContact
+        customerContact:req.body.customerContact,
+        orderDescription:req.body.orderDescription
     });
 
     // Save a order in the MongoDB
@@ -125,7 +126,7 @@ exports.neworderforuser = async(req, res) => {
     console.log(searchShopname);
     // let trueIngredients=[];
 
-    let itemList=await Order.find({shopName:searchShopname,acceptStatus:'waiting'}).select(['shopName','orderID','itemAndQuantity', 'acceptStatus', 'readyStatus', 'completeStatus']);
+    let itemList=await Order.find({shopName:searchShopname,acceptStatus:'waiting'}).select(['shopName','orderID','itemAndQuantity', 'acceptStatus', 'readyStatus', 'completeStatus','orderDescription']);
 
 
     return res.status(200).send(itemList);
@@ -143,7 +144,7 @@ exports.orderfortracker = async(req, res) => {
     // console.log(searchShopname);
     // let trueIngredients=[];
 
-    let itemList=await Order.find({customerContact:searchCustomerContact, orderSecretCode:searchSectretCode}).select(['shopName','orderID','itemAndQuantity', 'acceptStatus', 'readyStatus', 'completeStatus']);
+    let itemList=await Order.find({customerContact:searchCustomerContact, orderSecretCode:searchSectretCode}).select(['shopName','orderID','itemAndQuantity', 'acceptStatus', 'readyStatus', 'completeStatus','orderDescription']);
 
 
     return res.status(200).send(itemList);
@@ -163,7 +164,7 @@ exports.acceptedorderforuser = async(req, res) => {
     console.log(searchShopname);
     // let trueIngredients=[];
 
-    let itemList=await Order.find({shopName:searchShopname,readyStatus:'waiting',acceptStatus:'done'}).select(['shopName','orderID','itemAndQuantity', 'acceptStatus', 'readyStatus', 'completeStatus']);
+    let itemList=await Order.find({shopName:searchShopname,readyStatus:'waiting',acceptStatus:'done'}).select(['shopName','orderID','itemAndQuantity', 'acceptStatus', 'readyStatus', 'completeStatus','orderDescription']);
 
 
     return res.status(200).send(itemList);
@@ -178,7 +179,7 @@ exports.readyorderforuser = async(req, res) => {
     console.log(searchShopname);
     // let trueIngredients=[];
 
-    let itemList=await Order.find({shopName:searchShopname,completeStatus:'waiting',readyStatus:'done'}).select(['shopName','orderID','itemAndQuantity', 'acceptStatus', 'readyStatus', 'completeStatus']);
+    let itemList=await Order.find({shopName:searchShopname,completeStatus:'waiting',readyStatus:'done'}).select(['shopName','orderID','itemAndQuantity', 'acceptStatus', 'readyStatus', 'completeStatus','orderDescription']);
 
 
     return res.status(200).send(itemList);
@@ -193,7 +194,7 @@ exports.completedorderforuser = async(req, res) => {
     console.log(searchShopname);
     // let trueIngredients=[];
 
-    let itemList=await Order.find({shopName:searchShopname,completeStatus:'done'}).select(['shopName','orderID','itemAndQuantity', 'acceptStatus', 'readyStatus', 'completeStatus']);
+    let itemList=await Order.find({shopName:searchShopname,completeStatus:'done'}).select(['shopName','orderID','itemAndQuantity', 'acceptStatus', 'readyStatus', 'completeStatus','orderDescription']);
 
 
     return res.status(200).send(itemList);

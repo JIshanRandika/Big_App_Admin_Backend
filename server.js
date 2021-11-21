@@ -5,13 +5,21 @@ const dbConfig = require("./app/config/db.config");
 
 const app = express();
 
+const fronturl = process.env.fronturl || 'http://localhost:8081'
+
+var corsOptions = {
+  origin: fronturl
+};
+
+
 // var corsOptions = {
 //   origin: "http://localhost:8081"
 // };
 
-var corsOptions = {
-  origin: "https://bigdealershipweb.herokuapp.com"
-};
+
+// var corsOptions = {
+//   origin: "https://bigdealershipweb.herokuapp.com"
+// };
 
 
 

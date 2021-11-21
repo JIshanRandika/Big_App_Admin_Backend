@@ -5,7 +5,7 @@ const dbConfig = require("./app/config/db.config");
 
 const app = express();
 
-const fronturl = process.env.fronturl || 'http://localhost:8081'
+const fronturl = process.env.REACT_APP_FRONT_URL || 'http://localhost:8081'
 
 var corsOptions = {
   origin: fronturl

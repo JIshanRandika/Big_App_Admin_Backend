@@ -20,9 +20,9 @@ var corsOptions = {
 // };
 
 
-// var corsOptions = {
-//   origin: "https://bigdealershipweb.herokuapp.com"
-// };
+var corsOptions = {
+  origin: "https://bigdealershipweb.herokuapp.com"|| "http://localhost:8081"
+};
 
 
 

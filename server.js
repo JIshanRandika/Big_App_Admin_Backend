@@ -15,13 +15,13 @@ const app = express();
 //   origin: process.env.REACT_APP_FRONT_URL || 'http://localhost:8081'
 // };
 
-var corsOptions = {
-  origin: "http://localhost:8081"
-};
+// var corsOptions = {
+//   origin: "http://localhost:8081"
+// };
 
 
 var corsOptions = {
-  origin: "https://bigdealershipweb.herokuapp.com"|| "http://localhost:8081"
+  origin: "https://bigdealershipweb.herokuapp.com"
 };
 
 
